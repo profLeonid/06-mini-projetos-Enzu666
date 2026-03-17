@@ -1,4 +1,4 @@
-'use stric'
+'use strict'
 
 function removerClasses(){
     const resultado = document.getElementById('resultado')
