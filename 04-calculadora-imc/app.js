@@ -18,16 +18,16 @@ function classificarImc(imc){
     }
 }
 
-function escolherCor(resultado){
-    if(resultado === 'Abaixo do peso'){
+function escolherCor(resultado1){
+    if(resultado1 === 'Abaixo do peso'){
         return 'baixoPeso'
-    }else if(resultado === 'Peso ideal'){
+    }else if(resultado1 === 'Peso ideal'){
         return 'pesoIdeal'
-    }else if(resultado === 'Sobrepeso'){
+    }else if(resultado1 === 'Sobrepeso'){
         return 'sobrepeso'
-    }else if(resultado === 'Obesidade 1'){
+    }else if(resultado1 === 'Obesidade 1'){
         return 'obesidade1'
-    }else if(resultado === 'Obesidade 2'){
+    }else if(resultado1 === 'Obesidade 2'){
         return 'obesidade2'
     }else{
         return 'obesidade3'
@@ -35,15 +35,18 @@ function escolherCor(resultado){
 }
 
 function tratarClick(){
+
+    const resultado = document.getElementById('resultado')
+
     const peso = Number(document.getElementById('peso1').value)
     const altura = Number(document.getElementById('altura1').value)
-    const nome = Number(document.getElementById('nome1').value)
+    const nome = document.getElementById('nome1')
 
-    const imc = caclculoImc(altura, peso)
-    const resultado = classificarImc(imc)
-    const cor = escolherCor()
+    const imc = calculoImc(altura, peso)
+    const resultado1 = classificarImc(imc)
+    const cor = escolherCor(resultado1)
 
-    resultado.textContent = `${resultado}`
+    resultado.textContent = `${nome.value} está com ${resultado1}`
     resultado.classList.remove('nome', 'altura', 'peso')
     resultado.classList.add(cor)
 }
